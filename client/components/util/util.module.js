@@ -5,6 +5,6 @@ import {
   UtilService
 } from './util.service';
 
-export default angular.module('angularFullstackApp.util', [])
+export default angular.module('yoAngularFullstackApp.util', [])
   .factory('Util', UtilService)
   .name;

@@ -33,7 +33,7 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'angular-fullstack-secret'
+    session: 'yo-angular-fullstack-secret'
   },
 
   // MongoDB connection options

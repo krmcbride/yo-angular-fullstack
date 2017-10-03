@@ -2,6 +2,6 @@
 
 import angular from 'angular';
 
-export default angular.module('angularFullstackApp.constants', [])
+export default angular.module('yoAngularFullstackApp.constants', [])
   .constant('appConfig', require('../../server/config/environment/shared'))
   .name;

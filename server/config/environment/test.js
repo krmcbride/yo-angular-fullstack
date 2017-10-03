@@ -6,7 +6,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/angularfullstack-test'
+    uri: 'mongodb://localhost/yoangularfullstack-test'
   },
   sequelize: {
     uri: 'sqlite://',

@@ -19,7 +19,7 @@ export class MainController {
   }
 }
 
-export default angular.module('angularFullstackApp.main', [uiRouter])
+export default angular.module('yoAngularFullstackApp.main', [uiRouter])
   .config(routing)
   .component('main', {
     template: require('./main.html'),

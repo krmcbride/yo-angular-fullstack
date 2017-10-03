@@ -1,4 +1,4 @@
-// Generated on 2017-06-26 using generator-angular-fullstack 4.2.2
+// Generated on 2017-10-03 using generator-angular-fullstack 4.2.2
 'use strict';
 
 import _ from 'lodash';
@@ -32,8 +32,8 @@ const paths = {
         scripts: [
             `${clientPath}/**/!(*.spec|*.mock).js`
         ],
-        styles: [`${clientPath}/{app,components}/**/*.scss`],
-        mainStyle: `${clientPath}/app/app.scss`,
+        styles: [`${clientPath}/{app,components}/**/*.styl`],
+        mainStyle: `${clientPath}/app/app.styl`,
         views: `${clientPath}/{app,components}/**/*.html`,
         mainView: `${clientPath}/index.html`,
         test: [`${clientPath}/{app,components}/**/*.{spec,mock}.js`],
@@ -189,21 +189,23 @@ gulp.task('env:prod', () => {
  ********************/
 
 gulp.task('inject', cb => {
-    runSequence(['inject:scss'], cb);
+    runSequence(['inject:styl'], cb);
 });
 
-gulp.task('inject:scss', () => {
+gulp.task('inject:styl', () => {
     return gulp.src(paths.client.mainStyle)
         .pipe(plugins.inject(
             gulp.src(_.union(paths.client.styles, ['!' + paths.client.mainStyle]), {read: false})
                 .pipe(plugins.sort()),
             {
+                starttag: '/* inject:styl */',
+                endtag: '/* endinject */',
                 transform: (filepath) => {
                     let newPath = filepath
                         .replace(`/${clientPath}/app/`, '')
                         .replace(`/${clientPath}/components/`, '../components/')
-                        .replace(/_(.*).scss/, (match, p1, offset, string) => p1)
-                        .replace('.scss', '');
+                        .replace(/_(.*).styl/, (match, p1, offset, string) => p1)
+                        .replace('.styl', '');
                     return `@import '${newPath}';`;
                 }
             }))

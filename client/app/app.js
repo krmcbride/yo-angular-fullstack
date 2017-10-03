@@ -18,16 +18,16 @@ import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 
-import './app.scss';
+import './app.styl';
 
-angular.module('angularFullstackApp', [ngCookies, ngResource, ngSanitize, uiRouter, navbar, footer,
-  main, constants, util
+angular.module('yoAngularFullstackApp', [ngCookies, ngResource, ngSanitize, uiRouter, navbar,
+  footer, main, constants, util
 ])
   .config(routeConfig);
 
 angular.element(document)
   .ready(() => {
-    angular.bootstrap(document, ['angularFullstackApp'], {
+    angular.bootstrap(document, ['yoAngularFullstackApp'], {
       strictDi: true
     });
   });
